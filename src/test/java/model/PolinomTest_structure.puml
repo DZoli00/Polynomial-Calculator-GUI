@@ -1,0 +1,160 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": ""
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false // root node is included
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "model.PolinomTest"
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_104069929 { 
+   	label=model
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Monom104069929[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Monom</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   coeficient: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   grad: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ compareTo(o: Monom): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Polinom104069929[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Polinom</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   lista: ArrayList&lt;Monom&gt; [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ adaugMonom(m: Monom)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ adunPolinom(p2: Polinom)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculareRest(p2: Polinom)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ citeste(s: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ citesteCoeficient(s: String): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ citesteGrad(s: String): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ derivPolinom()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ impartPolinom(p2: Polinom)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ inmultescPolinom(p2: Polinom)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ integrPolinom()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ scadPolinom(p2: Polinom)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ stergMonom(m: Monom)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PolinomTest104069929[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PolinomTest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   p1: Polinom [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   p2: Polinom [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPolinomTest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ citireSiAfisarePolinomTest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ derivarePolinomTest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ impartirePolinomTest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ inmultirePolinomTest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ integrarePolinomTest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ subPolinomTest()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Polinom104069929 -> Monom104069929[label="lista
+[0..1]"];
+PolinomTest104069929 -> Polinom104069929[label="p1
+[0..1]"];
+PolinomTest104069929 -> Polinom104069929[label="p2
+[0..1]"];
+    
+}
+@enduml
